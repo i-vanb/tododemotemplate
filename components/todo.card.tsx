@@ -36,7 +36,7 @@ export const TodoCard = ({title, completed, description, toggleStatus, saveChang
   }
 
   return (
-    <div className="px-5 py-3 border rounded relative">
+    <div className="px-5 py-3 border rounded relative space-y-4">
       {isEditing
         ? <input type="text" className="border rounded px-4 py-2"
                  value={inputTitle}
@@ -45,11 +45,11 @@ export const TodoCard = ({title, completed, description, toggleStatus, saveChang
         : <h2 className={cn("text-2xl font-bold", {"line-through": completed}
         )}>{title}</h2>
       }
-      <div className="flex">
+      <div className="flex gap-4">
         {isEditing
-          ? <input type="text" className="border rounded px-4 py-2 flex-1"
-                   value={inputDescription}
-                   onChange={(e) => setInputDescription(e.target.value)}
+          ? <textarea className="border rounded px-4 py-2 flex-1"
+                      value={inputDescription}
+                      onChange={(e) => setInputDescription(e.target.value)}
           />
           : <p className={cn("text-gray-500 flex-1", {"line-through": completed})}>{description}</p>
         }

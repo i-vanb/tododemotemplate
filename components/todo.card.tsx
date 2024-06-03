@@ -38,10 +38,14 @@ export const TodoCard = ({title, completed, description, toggleStatus, saveChang
   return (
     <div className="px-5 py-3 border rounded relative space-y-4">
       {isEditing
-        ? <input type="text" className="border rounded px-4 py-2"
+        ?
+        <div className="flex gap-2 items-center justify-between">
+          <input type="text" className="border rounded px-4 py-2"
                  value={inputTitle}
                  onChange={(e) => setInputTitle(e.target.value)}
-        />
+          />
+          <button onClick={()=>setIsEditing(false)}>cancel</button>
+        </div>
         : <h2 className={cn("text-2xl font-bold", {"line-through": completed}
         )}>{title}</h2>
       }
